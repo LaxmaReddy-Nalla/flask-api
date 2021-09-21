@@ -11,7 +11,7 @@ def home():
 @app.route('/runapp', methods=['POST'])    
 def runapp():
     try:
-        os.system('cd /home/orgacac/develop/nexmo-voice-interface-asr && node app-gstt.js')
+        os.system('/bin/bash -c ./runapp.sh')
         res = Response(status=200)
     except TypeError as err:
         res = err
@@ -29,7 +29,7 @@ def killapp():
 @app.route('/runbot', methods =["POST"])
 def botrun():
     try:
-        os.system('/bin/bash -c ./script.sh')
+        os.system('/bin/bash -c ./runbot.sh')
         res = Response(status=200)
     except TypeError as err:
         res = err
