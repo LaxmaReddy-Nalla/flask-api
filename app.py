@@ -8,16 +8,16 @@ app = Flask(__name__)
 def home():
     os.system('ls -al')
     return 'HOME PAGE'
-@app.route('/runapp', methods=['GET'])    
+@app.route('/runapp', methods=['POST'])    
 def runapp():
     try:
-        os.system('node /home/laxmareddy/ACAC/nexmo-asr/app-gstt.js &')
+        os.system('cd /home/orgacac/develop/nexmo-voice-interface-asr && node app-gstt.js')
         res = Response(status=200)
     except TypeError as err:
         res = err
     return res
 
-@app.route('/killapp', methods= ["GET"])
+@app.route('/killapp', methods= ["POST"])
 def killapp():
     try:
         os.system('kill $(lsof -t -i:3000)')
@@ -26,7 +26,7 @@ def killapp():
         res = err
     return res
 
-@app.route('/runbot', methods =["GET"])
+@app.route('/runbot', methods =["POST"])
 def botrun():
     try:
         os.system('/bin/bash -c ./script.sh')
@@ -36,7 +36,7 @@ def botrun():
     print(res)
     return res
 
-@app.route('/killbot', methods= ["GET"])
+@app.route('/killbot', methods= ["POST"])
 def killbot():
     try:
         os.system('kill $(lsof -t -i:5005)')
