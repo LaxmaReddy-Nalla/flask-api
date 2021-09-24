@@ -3,9 +3,6 @@ import os
 from subprocess import call
 from werkzeug.exceptions import ExpectationFailed
 app = Flask(__name__)
-import logging
-logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
-
 
 @app.route('/startapp', methods=['POST'])    
 def runapp():
