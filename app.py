@@ -9,7 +9,7 @@ def runapp():
     try:
         # os.system('/bin/bash -c ./list.sh')
         # os.system('/bin/bash -c cd /home/orgacac/develop/nexmo-voice-interface-asr && node app-gstt.js')
-        os.system('/bin/bash -c bash /home/orgacac/test/flask-api/runapp.sh')
+        os.system('/bin/bash -c /home/orgacac/test/flask-api/runapp.sh &')
         res = Response(status=200)
     except TypeError as err:
         res = err
@@ -28,7 +28,7 @@ def killapp():
 def botrun():
     try:
         # os.system('/bin/bash -c source /home/orgacac/develop/botenv/bin/activate && cd /home/orgacac/develop/cpf_nomination_bot && rasa run --enable-api -p 500')
-        os.system('/bin/bash -c bash /home/orgacac/test/flask-api/runbot.sh')
+        os.system('/bin/bash -c /home/orgacac/test/flask-api/runbot.sh')
         res = Response(status=200)
     except TypeError as err:
         res = err
