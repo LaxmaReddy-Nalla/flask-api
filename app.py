@@ -1,5 +1,6 @@
 from flask import Flask, Response
 import os
+import time
 from subprocess import call
 from werkzeug.exceptions import ExpectationFailed
 app = Flask(__name__)
@@ -29,6 +30,7 @@ def botrun():
     try:
         # os.system('/bin/bash -c source /home/orgacac/develop/botenv/bin/activate && cd /home/orgacac/develop/cpf_nomination_bot && rasa run --enable-api -p 500')
         os.system('/bin/bash -c /home/orgacac/test/flask-api/runbot.sh &')
+        time.sleep(45) # sleep for 45 seconds until bot up and running
         res = Response(status=200)
     except TypeError as err:
         res = err
